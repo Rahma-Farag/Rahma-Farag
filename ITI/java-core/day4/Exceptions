@@ -1,0 +1,112 @@
+import java.io.IOException;
+import java.util.Scanner;
+import java.io.FileInputStream;
+import java.io.*;
+class MethodCall
+{
+	public static void main(String args[])
+	{
+		Methods m = new Methods();
+		
+		System.out.println("");
+		System.out.println("Method1 is running");
+		try
+		{
+			System.out.println(m.method1(-5));
+		}
+		catch(ExceptionThrow e) //Exception
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			System.out.println("Method 1 Done");
+		}
+		
+		System.out.println("");
+		System.out.println("Method2 is running");
+		try
+		{
+			System.out.println(m.method2(5));
+		}
+		catch(RunTimeExceptionThrow e) // or (RunTimeException e)
+		{
+			e.printStackTrace();
+		}
+		
+		System.out.println("");
+		System.out.println("Method3 is running");
+		try
+		{
+			System.out.println(m.method3(11,"IOException Thrown here... x>10"));
+		}
+		catch(Exception e) // or (IOExceptionThrow e) or (IOException e)
+		{
+			e.printStackTrace();
+		}
+		
+		try (Scanner in = new Scanner(new FileInputStream("/home/rahma"), "UTF-8"))
+		{
+			while (in.hasNext())
+				System.out.println(in.next());
+		}
+		catch(FileNotFoundException e)
+		{
+			System.out.println("");
+			System.out.println("File Not Found");
+			e.printStackTrace();
+		}
+		
+	}
+
+}
+
+class Methods
+{
+	int x;
+	public int method1(int x) throws ExceptionThrow
+	{
+		if(x<0)
+			throw new ExceptionThrow("Exception Thrown here... x<0");
+		return x;
+	}
+	public int method2(int x) throws RunTimeExceptionThrow
+	{	
+		if(x>0)
+			throw new RunTimeExceptionThrow("RunTime Exception Thrown here... x>0");
+		return x;
+	}
+	public int method3(int x,String s) throws IOExceptionThrow
+	{
+		if(x > 10)
+			throw new IOExceptionThrow(s);
+		else
+			return x;
+	}
+}
+
+class ExceptionThrow extends Exception
+{
+	ExceptionThrow(String s)
+	{
+		super(s);//parent class constructor
+	}
+
+}
+class RunTimeExceptionThrow extends RuntimeException
+{
+	RunTimeExceptionThrow(String s)
+	{
+		super(s);//parent class constructor
+	}
+
+}
+
+class IOExceptionThrow extends IOException
+{
+	IOExceptionThrow(String s)
+	{
+		super(s);//parent class constructor
+	}
+
+}
