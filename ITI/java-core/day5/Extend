@@ -1,0 +1,58 @@
+import java.util.ArrayList;
+import java.util.List;
+
+class lab5_1
+{
+
+	public static void drawShapes(List<? extends Shape> lists)
+	{
+		for(Shape s: lists)
+		{
+			s.draw();
+		}
+	}
+	public static void main(String args[])
+	{
+		List<Rectangle> listR = new ArrayList<Rectangle> ();//dont need second rect in new
+		listR.add(new Rectangle());
+		
+		List<Circle> listC = new ArrayList<Circle> ();
+		listC.add(new Circle());
+		listC.add(new Circle());
+		
+		List<Shape> listS = new ArrayList<Shape> ();
+		listS.add(new Rectangle());
+		listS.add(new Circle());
+		
+		System.out.println("***Rectangle list***");
+		drawShapes(listR);
+		System.out.println("***Circle list***");
+		drawShapes(listC);
+		System.out.println("***Shape list***");
+		drawShapes(listS);
+		 
+		
+	}
+	
+}
+
+class Shape
+{
+	void draw(){}
+}
+
+class Rectangle extends Shape
+{
+	void draw()
+	{
+		System.out.println("Rectangle..");
+	}
+}
+
+class Circle extends Shape
+{
+	void draw()
+	{
+		System.out.println("Circle..");
+	}
+}
