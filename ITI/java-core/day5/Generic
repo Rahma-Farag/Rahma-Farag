@@ -1,0 +1,89 @@
+import java.math.BigDecimal;
+class lab5_2
+{
+
+	
+	public static void main(String args[])
+	{
+		BigDecimal x = new BigDecimal(1);
+		BigDecimal y = new BigDecimal(2);
+		
+		//intializing complex numbers
+		// comp1 = 1+2i
+		// comp2 = 0
+		Complex<BigDecimal> comp1 = new Complex(x,y);
+		Complex<BigDecimal> comp2 = new Complex();
+		
+		//comp2 = comp1 + (2+2i)
+		comp2 = comp1.add(new BigDecimal(2),new BigDecimal(2));
+		System.out.println("number = " + comp2.getReal() + " + " + comp2.getImag() + "i");
+		
+		//comp2 = comp1 - (2+2i)
+		comp2 = comp1.subtract(new BigDecimal(2),new BigDecimal(2));
+		System.out.println("number = " + comp1.getReal() + " + " + comp1.getImag() + "i");
+		
+	}
+}
+
+class Complex<T extends BigDecimal>
+{
+	T real;
+	T imag;
+	
+	public Complex()
+	{
+	}
+	
+	public Complex(T x, T y)
+	{
+		real = x;
+		imag = y;
+	}
+	
+	void setReal(T x)
+	{
+		real = x;
+	}
+	
+	void setImag(T y)
+	{
+		imag = y;
+	}
+	
+	T getReal()
+	{
+		return real;
+	}
+	
+	T getImag()
+	{
+		return imag;
+	}
+	
+	
+	Complex add(T x, T y)
+	{
+		Complex<BigDecimal> result = new Complex<BigDecimal>();
+		result.real = real.add(x);
+		result.imag = imag.add(y);
+		return result;
+	}
+	
+	Complex subtract(T x, T y)
+	{
+		Complex<BigDecimal> result = new Complex();
+		result.real = real.subtract(x);
+		result.imag = imag.subtract(y);
+		return result;
+	}
+	/*
+	Complex mult(T x, T y)
+	{
+		Complex<BigDecimal> result = new Complex();
+		result.real=(real.multiply(x)).subtract(imag.multiply(y));
+		result.imag=(imag.multiply(x)).add(real.multiply(y));
+		return result;
+	} 
+	*/
+	
+}
