@@ -1,0 +1,47 @@
+import java.util.function.Function;
+class lab3_2
+{
+	public static void main(String args[])
+	{
+		if(args.length != 3)
+			System.out.println("Invalid number of parameters");
+
+		else
+		{
+			Double x = Double.parseDouble(args[0]);
+			Double y = Double.parseDouble(args[1]);
+			Double z = Double.parseDouble(args[2]);
+			Parameters param = new Parameters(x,y,z);
+			Roots roots = new Roots();
+			Double arr[] = roots.apply(param);
+			System.out.println("the first root is: " + arr[0] + " The second root is: " + arr[1]);
+			
+		} 
+	}
+
+}
+
+class Parameters
+{
+	Double a;
+	Double b;
+	Double c;
+	Parameters(Double x, Double y, Double z)
+	{
+		a = x;
+		b = y;
+		c = z;
+	}
+}
+
+class Roots implements Function<Parameters,Double[]>
+{
+	public Double[] apply(Parameters param)
+	{
+		Double determinant = (param.b*param.b)-(4*param.a*param.c);
+		Double root1 =  (-param.b + Math.sqrt(determinant))/(2*param.a);
+		Double root2 =  (-param.b - Math.sqrt(determinant))/(2*param.a);
+		Double arr[] = {root1,root2};
+		return arr;
+	} 
+}
