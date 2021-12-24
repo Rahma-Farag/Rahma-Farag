@@ -1,0 +1,24 @@
+import java.util.function.Function;
+class lab3_1
+{
+	public static void main(String args[])
+	{
+		if(args.length != 1)
+			System.out.println("Invalid number of parameters");
+
+		else
+		{
+			Convert cToF = new Convert();
+			System.out.println(cToF.apply(Double.parseDouble(args[0])));
+		} 
+	}
+
+}
+
+class Convert implements Function<Double,Double>
+{
+	public Double apply(Double cent)
+	{
+		return ( (cent * (9.0/5)) + 32);
+	} 
+}
