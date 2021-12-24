@@ -1,0 +1,29 @@
+class max_min_linear
+{
+	public static void main(String args[])
+	{
+		int arr[];
+		int max =0;
+		int min = 9999;
+		arr= new int[1000];
+		for(int i=0;i<1000;i++)
+		{
+			arr[i] = (int)Math.floor(Math.random()*(1000-0+1)+0);
+		}
+		//start of search
+		long startTimeLinear = System.nanoTime();
+		for(int i=0;i<1000;i++)
+		{
+			if(arr[i] > max)
+				max = arr[i];
+			if(arr[i] < min)
+				min = arr[i];
+		}
+		//end of search
+		long endTimeLinear = System.nanoTime();
+		System.out.println("The max is "+ max);
+		System.out.println("The min is "+ min);
+		System.out.println("The time it took in nano seconds is "+ (endTimeLinear - startTimeLinear));
+		 
+	}
+}
