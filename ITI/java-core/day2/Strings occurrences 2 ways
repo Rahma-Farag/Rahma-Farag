@@ -1,0 +1,40 @@
+class Lab03
+{
+	public static void main(String args[])
+	{
+		if(args.length != 2)
+			System.out.println("Invalid number of parameters");
+
+		else
+		{
+			String sentence = args[0];
+			String word = args[1];
+			int times =0;
+			int i =0;
+			while(i != -1)
+			{
+				i = sentence.indexOf(word, i); //check for word starting from index i
+				if (i != -1) 
+			    	{
+			    		times++;   
+			    		i++; 
+			    	}
+			}
+			System.out.println("Using indexOf: found the word " + times + " times");
+			
+			//using substring
+			i=0;
+			times =0;
+			while(i< sentence.length())
+			{
+				if (sentence.substring(i).startsWith(word)) //starting from index i check for word
+				{
+					times ++;
+			    	}
+			    	i++;
+			}
+			System.out.println("Using substring: found the word " + times + " times");
+		}
+	}
+
+}
