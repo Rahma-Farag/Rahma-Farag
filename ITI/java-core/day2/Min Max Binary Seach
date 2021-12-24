@@ -1,0 +1,67 @@
+import java.util.Arrays;  
+class BinarySearch
+{
+	public static void main(String args[])
+	{
+		if(args.length != 1)
+			System.out.println("Invalid number of parameters");
+		else{
+		
+			int arr[];
+			int max =0;
+			int min = 9999;
+			arr= new int[1000];
+			for(int i=0;i<1000;i++)
+			{
+				arr[i] = (int)Math.floor(Math.random()*(1000-0+1)+0);
+			}
+			
+			//sorting of the array
+			Arrays.sort(arr); 
+			/*
+			for(int i=0;i<1000;i++)
+			{
+				System.out.print(arr[i] + " ");
+			}
+			System.out.println(" ");
+			*/
+			//start of search
+			long startTimeLinear = System.nanoTime();
+			int number = Integer.parseInt(args[0]);
+			//search for a the number
+			int found = binarySearch(arr, 0, 999, number);
+			//end of search
+			long endTimeLinear = System.nanoTime();
+			if(found == -1)
+				System.out.println("The number was not found ");
+			else
+			{
+				System.out.println("The index of the number is "+ found);
+				System.out.println("The time it took in nano seconds is "+ (endTimeLinear - startTimeLinear));
+			}
+			
+			
+		 }
+	}
+	public static int binarySearch(int arr[], int left, int right, int number)
+	{
+	    if(right >= left) 
+	    {
+		int mid = left + (right - left) / 2;
+	 
+		// If the number is at the middle
+		if(arr[mid] == number)
+		    return mid;
+	 
+		// If number is smaller than mid, then check left half only
+		if(arr[mid] > number)
+		    return binarySearch(arr, left, mid - 1, number);
+	 
+		// Else the number is larger than mid, then check right half only
+		return binarySearch(arr, mid + 1, right, number);
+	    }
+	 
+	    // we didn't find the number
+	    return -1;
+	}
+}
