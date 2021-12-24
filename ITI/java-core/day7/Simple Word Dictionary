@@ -1,0 +1,74 @@
+import static java.util.stream.Collectors.toList;
+import java.util.Comparator;
+import java.util.Optional;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.util.*;
+import java.lang.*;
+class WordDict
+{
+
+	public static List<String> printValues(Map<Character, List<String> > map, char key)
+	{
+		return map.get(key);
+	}
+	public static void printMap(Map<Character, List<String> > map)
+	{
+		for (Map.Entry<Character,List<String>> keyValue : map.entrySet())
+		{
+			System.out.println("Key = " + keyValue.getKey() + ", Value = " + keyValue.getValue());
+      		}
+	}
+	
+	public static void main(String args[]) {
+		
+		String words[] = {"apple", "arrow", "Azure", "2rr", ".exe", "Guava", "event", "thrill",
+					"quack","responsible","afraid","moor","arch","harass","tame","worry","powerful","highfalutin",
+					"normal","boorish","celery","closed","burly","superficial","fairies","writer","scary","repeat",
+					"mouth","adjustment","foot","physical","squeamish","whine","reduce","fascinated","substantial",
+					"whole","wrong","toothsome","deeply","best","fresh","lush","quartz","tart"};
+		Map<Character, List<String> > wordDict = new HashMap<Character, List<String>>();
+		
+		for(String word:words)
+		{
+			if(!wordDict.containsKey(word.charAt(0)))
+			{	
+				/*if(Character.isLetter(word.charAt(0)))
+				{
+					wordDict.put(Character.toLowerCase(word.charAt(0)), new ArrayList<String>());
+				}
+				*/
+				wordDict.put(word.charAt(0), new ArrayList<String>());	
+			}
+			wordDict.get(word.charAt(0)).add(word);
+		
+		}
+		System.out.println("******************");
+		System.out.println("before Sorting");
+		System.out.println(wordDict);
+		System.out.println("******************");
+		//Sorting elements
+		for (Map.Entry<Character,List<String>> keyValue : wordDict.entrySet())
+		{
+			//System.out.println("Key = " + keyValue.getKey() + ", Value = " + keyValue.getValue());
+            		wordDict.put(keyValue.getKey(), keyValue.getValue().stream().sorted().collect(toList()));
+          
+      		}
+      		System.out.println("After Sorting");
+            	System.out.println(wordDict);
+            	System.out.println("******************");
+            	
+            	//printing
+            	List<String> valueOfKey = WordDict.printValues(wordDict, 'a');
+            	System.out.println("Print values of key a");
+            	System.out.println(valueOfKey);
+            	System.out.println("******************");
+            	
+            	//printMap
+            	System.out.println("Map");
+            	WordDict.printMap(wordDict);
+		System.out.println("******************");
+		 
+	}
+
+}
