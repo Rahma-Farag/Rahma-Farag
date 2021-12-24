@@ -1,0 +1,25 @@
+import java.util.List;
+import java.util.function.Predicate;
+class lab5_3
+{
+	interface StringTest {
+		boolean test(String s1, String s2);
+	}
+	public static String betterString(String s1 , String s2 , StringTest f )
+	{
+		if(f.test(s1,s2))
+			return s1;
+		else
+			return s2;
+	}
+	public static void main(String args[])
+	{
+		String s1 = "This is String 1";
+		String s2 = "This is String 2";
+		
+		String better = betterString(s1,s2, (st1,st2) -> s1.length() > s2.length() ); 
+		System.out.println(better);
+		
+	}
+	
+}
