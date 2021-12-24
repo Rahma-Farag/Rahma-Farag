@@ -1,0 +1,38 @@
+import java.lang.*;
+import java.util.function.Predicate;
+
+class lab5_4
+{
+
+	static boolean stringIter(String s)
+	{
+		for(int i = 0; i < s.length(); i++)
+		{  
+			  if(!(Character.isLetter(s.charAt(i)) ))
+			  	return false;
+
+		} 
+		return true;
+	}
+	static boolean checksString(String s , Predicate<String> f)
+	{	
+		return f.test(s);
+	}
+	public static void main(String [] args)
+	{
+		String st = "Checkthis";
+		Predicate<String> method = lab5_4::stringIter;
+		//method refrence
+		boolean checks = checksString(st, method);
+		System.out.println(checks);
+		//method refrence
+		String st1 = "Checkthis2";
+		boolean checks1 = checksString(st1, lab5_4::stringIter);
+		System.out.println(checks1);
+		// lambbda
+		String st2 = "123";
+		boolean checks2 = checksString(st2, (s)->stringIter(s) );
+		System.out.println(checks2);
+			
+	}
+}
