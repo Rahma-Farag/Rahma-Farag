@@ -1,0 +1,29 @@
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+class Lab05
+{
+	public static void main(String args[])
+	{
+		if(args.length != 2)
+			System.out.println("Invalid number of parameters");
+
+		else
+		{
+			String sentence = args[0];
+			String word = args[1];
+			int times =0;
+			
+			Pattern pattern = Pattern.compile(word); 
+			Matcher matcher = pattern.matcher(sentence);
+
+			while(matcher.find()) 
+			{
+			    times++;
+			}
+			
+			System.out.println("Using StringTokenizer: found the word " + times + " times");
+		}
+	}
+
+}
