@@ -1,1 +1,13 @@
+The imbalanced datasets are generally biased towards the majority class of the target variable. 
+In this case the majority class is non fraudulent transactions and the minority class is fraudulent transactions.
+Hence if we don't balance these two classes the machine learning algorithms will be biased towards the majority class. 
+Therefore it becomes important to balance the classes present in target variables. 
+There are two ways in which we can balance these two categories - 
 
+- **Undersampling**: In undersampling we randomly select as many observations of majority class as we have for minority class
+    to make both of these classes balanced
+
+- **Oversampling**: In oversampling, we create multiple copies of minority class to have same number of observations as we have for majority class. 
+    Here also we can oversampling in two ways - 
+    - **Minotiy Oversampling**: here we create duplicates of same data from minority class
+    - **SMOTE (Synthetic Minority Oversampling Technique)**: here we create observations for the minority class, based on those that already exist. It randomly picks a point from the minority class and computes the k-nearest neighbors for this point. The synthetic points are added between the chosen point and its neighbors.
