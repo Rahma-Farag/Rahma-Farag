@@ -1,0 +1,5 @@
+Explain the kinds of problems suitable for Unsupervised Learning approaches
+Explain the curse of dimensionality, and how it makes clustering difficult with many features
+Describe and use common clustering and dimensionality-reduction algorithms
+Try clustering points where appropriate, compare the performance of per-cluster models
+Understand metrics relevant for characterizing clusters
