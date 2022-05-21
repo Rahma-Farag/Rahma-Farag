@@ -1,0 +1,8 @@
+implementing Gradient Descent, Stochastic gradient descent and mini batch gradient descent 
+with differeent optimizers :
+1- momentum
+2- NAG
+3- adagrad
+4- RMSprop
+5- adam
+6- adam with bias correction
