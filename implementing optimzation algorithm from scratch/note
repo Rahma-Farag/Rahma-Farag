@@ -6,3 +6,4 @@ with differeent optimizers :
 4- RMSprop
 5- adam
 6- adam with bias correction
+with single and multi-variable inputs
