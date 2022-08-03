@@ -1,20 +1,20 @@
 # Conclusion
-## * segment 1
+## segment 1
 
 ###  high balance , high purchase frequency
 ###  low cash advance, high percentage of full payment (this means low interest)
 
-##* segment 2
+## segment 2
 
 ###  high balance,low purchase freq
 ###  high cash advance, low percentage of full payment (good for the bank -> target to buy more)
 
-## * segment 3
+## segment 3
 
 ### medium balance,  low cash in advance transactions
 ###  low cash advance, medium percentage of full payment (pays interest but small as cash advance is low)
 
-## * segment 4 low balance, low cash advance,low purchase freq
+## segment 4 low balance, low cash advance,low purchase freq
 ### outliers
 
 
