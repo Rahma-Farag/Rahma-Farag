@@ -3,14 +3,11 @@
 Head pose implies a person's visual attention and interest. 
 It plays an important role in many applications such as, human-machine interaction and driver assistance.
 
-This project is to get the head pose from '2D' landmarks not 3D landmarks in real time.
-To do this with the classical way they have to fit the 2d points with a 3d face model which is considered as a fitting technique. 
-But in our case, it is not a deterministic solution and has its problems. Here comes the ML to replace the 3d fitting assumption, 
-the camera parameters and the projection equations.
+The goal of this project was to determine head pose from 2D landmarks in real time, rather than using 3D landmarks. Traditionally, this involves fitting the 2D points to a 3D face model, a process known as fitting. Instead, I utilized machine learning to eliminate the need for 3D fitting, as well as the camera parameters and projection equations.
 
-We used the following to build our project :
- 1- dlib and mediapipe libraries for detecting the 2D face landmarks.
- 2- Different machine learning algorithms to predict 3 angles(yaw-pitch-roll) in real time.
+The project was built using:
+1. Dlib and Mediapipe libraries for detecting 2D face landmarks.2.  Data preprocessing (scaling and cleaning)
+3. Fine-tuning machine learning algorithms to predict the three angles (yaw, pitch, and roll) in real time.
  
  
 
